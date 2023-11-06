@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="head">
+    <h1>Загрузить музыку</h1>
+</div>
+<div class="container">
+    <form method="POST" enctype="multipart/form-data" class="form", novalidate>
+        {{ form.hidden_tag() }}
+        <div class="box_input">
+            {{ form.name(class="input") }}
+            {{ form.name.label }}
+        </div>
+        {% for error in form.name.errors %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+        {% endfor %}
+
+
+		<div class="file_input" id="dragArea">
+			<span class="material-icons">backup</span>
+			{{ form.img.label }}
+			<button class="button button_form", id="button_file" type="button">Загрузить</button>
+		</div>
+		{{ form.img(id="input_file", hidden="") }}
+		{% for error in form.img.errors %}
+			<div class="alert alert-danger" role="alert">
+				{{ error }}
+			</div>
+		{% endfor %}
+        
+
+		<div class="box_input">
+			{{ form.tag(class="input_selectitem") }}
+			{{ form.tag.label(class="select_lable")}}
+		</div>
+		{% for error in form.tag.errors %}
+			<div class="alert alert-danger" role="alert">
+				{{ error }}
+			</div>
+		{% endfor %}
+
+
+		<div class="box_input">
+			{{ form.music(class="input_file") }}
+			{{ form.music.label }}
+		</div>
+		{% for error in form.music.errors %}
+			<div class="alert alert-danger" role="alert">
+				{{ error }}
+			</div>
+		{% endfor %}
+
+
+        {{ form.submit(class="button button_form", id="send") }}
+        {{ message }}
+    </form>
+</div>
+{% endblock %}

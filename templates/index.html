@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{state}}</h1>
+
+<div class="list_music">
+	<script src="{{ url_for('static', filename='js/load_music.js') }}"></script>
+</div>
+<div class="model_main" id="model_commens">
+	<div class="model">
+		<form action="" method="post" class="form form_model", novalidate, enctype="multipart/form-data">
+			<div class="box_input">
+				<textarea name="comment" class="input", id="comments"></textarea>
+				<label>email</label>
+			</div>
+			<a class="button btn_profile", id="submit_comment">Отправить</a>
+		</form>
+		<div class="comments_list">
+			
+		</div>
+	</div>
+</div>
+{% endblock %}

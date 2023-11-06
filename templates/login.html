@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="head">
+    <h1>Авторизация</h1>
+</div>
+<div class="container">
+    <form action="" method="post" class="form">
+        {{ form.hidden_tag() }}
+            
+        <div class="box_input">
+            {{ form.email(class="input") }}
+            <label>email</label>
+        </div>
+            {% for error in form.email.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+
+
+        <div class="box_input">
+            {{ form.password(class="input", type="password") }}
+            <label>password</label>
+        </div>
+            {% for error in form.password.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        
+        <div class="check">
+            {{ form.remember_me(class="remember") }}
+            {{ form.remember_me.label }}
+        </div>
+        {{ form.submit(type="submit", class="button button_form") }}
+        {{ message }}
+    </form>
+    <div class="or">
+        <h2>OR</h2>
+    </div>
+    <div class="form_or_reg">
+        <ul>
+            <li><a href="lol" class="link"><span class="material-icons">dashboard_customize</span></a></li>
+            <li><a href="lol" class="link"><span class="material-icons">dashboard_customize</span></a></li>
+            <li><a href="lol" class="link"><span class="material-icons">dashboard_customize</span></a></li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

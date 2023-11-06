@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="head">
+<h1>Профиль</h1>
+</div>
+<div class="container">
+    <div class="container_icon">
+        <div class="icon_img">
+            <img class="icon", src="{{ url_for('static', filename=current_user.icon.replace('%5C','/')) }}">
+            <div class="load_img">
+                <span class="material-icons">get_app</span>
+            </div>
+        </div>
+        <div class="input_profile">
+            <label>Никнейм</label>
+            <h1>{{current_user.nickname}}</h1>
+        </div>
+        <a class="button btn_profile" href="#" id="button_model">Загрузить музыку</a>
+    </div>
+    <div class="container_info">
+        <div class="name_sename">
+            <div class="input_profile">
+                <label>имя</label>
+                <h1>{{current_user.name}}</h1>
+            </div>
+            <div class="input_profile">
+                <label>фамилия</label>
+                <h1>{{current_user.sename}}</h1>
+            </div>
+        </div>
+        <div class="input_profile">
+            <label>день рождения</label>
+            <h1>{{current_user.birthday}}</h1>
+        </div>
+        <div class="input_profile">
+            <label>телефон</label>
+            <h1>{{current_user.phone}}</h1>
+        </div>
+        <div class="input_profile">
+            <label>почта</label>
+            <h1>{{current_user.email}}</h1>
+        </div>
+    </div>
+</div>
+<div class="model_main" id="model">
+	<div class="model">
+		<form action="" method="post" class="form form_model", novalidate, enctype="multipart/form-data">
+			{{ form.hidden_tag() }}
+            <div class="file_input" id="dragArea">
+                <span class="material-icons">backup</span>
+                {{ form.img.label }}
+                <a class="button button_form", id="button_file">Загрузить</a>
+            </div>
+            {{ form.img(id="input_file", hidden="") }}
+			<div class="box_input">
+				{{ form.email(class="input", value=current_user.email) }}
+				<label>email</label>
+			</div>
+			{% for error in form.email.errors %}
+				<p class="alert alert-danger" role="alert">
+					{{ error }}
+				</p>
+			{% endfor %}
+		 
+			
+			<div class="box_input">
+				{{ form.phone(class="input", value=current_user.phone) }}
+				<label>phone</label>
+			</div>
+			{% for error in form.phone.errors %}
+				<p class="alert alert-danger" role="alert">
+					{{ error }}
+				</p>
+			{% endfor %}
+		
+		
+			<div class="box_input">
+				{{ form.name(class="input", value=current_user.name) }}
+				<label>name</label>
+			</div>
+			{% for error in form.name.errors %}
+				<p class="alert alert-danger" role="alert">
+					{{ error }}
+				</p>
+			{% endfor %}
+		
+		
+			<div class="box_input">
+				{{ form.sename(class="input", value=current_user.sename) }}
+				<label>sename</label>
+			</div>
+			{% for error in form.sename.errors %}
+				<p class="alert alert-danger" role="alert">
+					{{ error }}
+				</p>
+			{% endfor %}
+                
+            <div class="box_input">
+				{{ form.birthday(class="input", value=current_user.birthday) }}
+				{{ form.birthday.label }}
+			</div>
+			{% for error in form.birthday.errors %}
+				<p class="alert alert-danger" role="alert">
+					{{ error }}
+				</p>
+			{% endfor %}
+		
+			<div class="box_input">
+				{{ form.nickname(class="input", value=current_user.nickname) }}
+				<label>nickname</label>
+			</div>
+			{% for error in form.nickname.errors %}
+				<p class="alert alert-danger" role="alert">
+					{{ error }}
+				</p>
+			{% endfor %}
+		
+			{{ form.submit(type="submit", class="button button_form") }}
+			{{message}}
+		</form>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,181 @@
+.form{
+    height: 100%;
+    display: flex;
+    justify-items: center;
+    flex-direction: column;
+    width: 30vh;
+}
+
+.or{
+   text-align: center;
+   width: 10vw;
+}
+
+.or::before,
+.or::after{
+    content: "";
+    display: block;
+    width: 1px;
+    height: 50%;
+    color: black;
+    background-color: black;
+    margin: 0 auto;
+}
+
+.input{
+    font-size: 16px;
+    border: none;
+    border-bottom: 2px solid black;
+    padding: 10px 0;
+    margin-bottom: 22px;
+    color: black;
+    outline: none;
+    width: 100%;
+}
+
+.box_input{
+    position: relative;
+}
+
+.box_input label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 10px;
+    color: rgb(158, 158, 158);
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.box_input .input:focus ~ label,
+.box_input input:valid ~ label{
+    top: -20px;
+    font-size: 12px;
+    color: black;
+}
+
+.button_form{
+    color: black;
+    background-color: black;
+    font-size: 25px;
+}
+
+.form_or_reg{
+    height: 100%;
+    width: 30vh;
+}
+
+.check{
+    font-size: 20px;
+    position: relative;
+    margin-bottom: 22px;
+}
+
+.remember{
+    width: 30px;
+    height: 30px;
+}
+
+.check label{
+    position: absolute;
+    left: 40px;
+    top: 5px;
+}
+
+.hidden{
+    display: none;
+}
+
+.file_input{
+    border: 2px solid #000;
+    height: 300px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: black;
+    position: relative;
+    margin:10px 0 80px 0;
+}
+
+.file_input span{
+    font-size: 50px;
+    color: white;
+    margin: 10px 0;
+}
+
+.file_input label{
+    font-size: 30px;
+    font-weight: 500;
+    color: white;
+    margin: 10px 0;
+}
+
+.pulse::before,
+.pulse::after{
+    content: '';
+    position: absolute;
+    border: 1px solid black;
+    left: -20px;
+    right: -20px;
+    top: -20px;
+    bottom: -20px;
+    animation: pulse 1.8s linear infinite;
+    opacity: 0;
+}
+
+.pulse::after{
+    animation-delay: 0.5s;
+}
+
+@keyframes pulse{
+    0%{
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        transform: scale(1.2);
+        opacity: 0;
+    }
+}
+
+.file_input img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.delite_file{
+    position: absolute;
+    top:0;
+    left: 10px;
+    cursor: pointer;
+}
+
+.delite_file span{
+    font-size: 20px;
+    font-weight: 500;
+    color: black;
+}
+
+.input_selectitem{
+    width: 100%;
+    margin-bottom: 40px;
+    border-radius: 0;
+    height: 30px;
+    text-align: center;
+    font-size: 20px;
+    background-color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+.select_lable{
+    top: -45px;
+    color: black;
+    font-size: 25px;
+}

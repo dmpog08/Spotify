@@ -38,9 +38,9 @@ volumeSlider.addEventListener("mousemove", setVolume)
 audio.addEventListener("timeupdate", ()=>{seekTimeUpdate()});
 audio.addEventListener("ended", ()=>{nextSound()});
 
-function loadSound(soundFile, imgFile, nameMusic, nameAuter, id){
+function loadSound(imgFile, nameMusic, nameAuter, id){
     currentSound = id
-    audio.src = soundFile
+    audio.src = `http://localhost:5000/play/${id}`
     audio.loop = false
     audio.preload = "metadata"
     const player = document.querySelector(".player")
@@ -97,7 +97,7 @@ function nextSound(){
     }else {
         sound = currentPlayList[info + 1]
     }
-    loadSound(sound.file_name, sound.img, sound.name, sound.id_user, sound.id)
+    loadSound(sound.img, sound.name, sound.id_user, sound.id)
 }
 
 function pregSound(){
@@ -112,7 +112,7 @@ function pregSound(){
     }else {
         sound = currentPlayList[info - 1]
     }
-    loadSound(sound.file_name, sound.img, sound.name, sound.id_user, sound.id)
+    loadSound(sound.img, sound.name, sound.id_user, sound.id)
 }
 
 function setVolume(){
@@ -275,7 +275,7 @@ window.addEventListener('popstate', function(e){
                 return;
             }
             response.json().then((data)=>{
-                loadSound(data.data.file_name, data.data.img, data.data.name, data.data.id_user, data.data.id)
+                loadSound(data.data.img, data.data.name, data.data.id_user, data.data.id)
                 try{
                     idList = params.get("list_sound")
                     currentPlayList = playList[idList].sounds

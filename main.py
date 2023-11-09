@@ -10,6 +10,8 @@ from Controller.UploadMusicController import UploadMusicController
 from Controller.ProfileController import MyProfileController
 from Controller.GetMusicController import GetMusicController
 
+from Controller.MusicPlayerController import MusicPlayerController
+
 from forms.LoginForm import LoginForm
 from forms.ReqistrationForm import RegisterForm
 from forms.UploadMusicForm import UploadMusicForm
@@ -19,7 +21,7 @@ from Models.User import User
 
 import os
 
-from flask import Flask, render_template, redirect, request, abort, session, make_response, jsonify
+from flask import Flask, render_template, redirect, request, abort, session, make_response, jsonify, Response
 from flask_login import login_user, logout_user, login_required
 from sqlalchemy import desc
 from forms.comment import Comment
@@ -108,6 +110,10 @@ def reqister():
     controller = ReqistrationController(model=RegisterForm(), login_user=login_user)
     return controller()
 
+@app.route('/play/<int:stream_id>')
+def streammp3(stream_id):
+    controller = MusicPlayerController(model=None, login_user=None)
+    return controller(stream_id)
 
 @app.route('/logout')
 @login_required

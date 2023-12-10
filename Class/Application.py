@@ -43,7 +43,7 @@ class Application(metaclass=Solide):
         name_data_base = f'sqlite:///{file_name.strip()}?check_same_thread=False'
         print(f"Подключение к базе данных по адресу {name_data_base}")
 
-        engine = create_engine(name_data_base, echo=True)
+        engine = create_engine(name_data_base, echo=False)
         self.__context = orm.sessionmaker(bind=engine)()
         self.__model.metadata.create_all(engine)
 

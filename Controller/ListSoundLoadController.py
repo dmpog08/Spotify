@@ -11,6 +11,7 @@ class ListSoundLoadController(IController):
     def __call__(self, massed, *args, **kwargs):
         get_music = GetMusicController()
         req = massed.get_json()
+        print(current_user, "ttttttttttttttttttttttttttttt")
         user = app().context.query(ListSound).filter(ListSound.id_user == current_user.id).first()
         if user is None:
             list_sound = ListSound(id_user=current_user.id,

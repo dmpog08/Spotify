@@ -35,7 +35,7 @@ function view(data){
             <img src="${music.img}">
             <div class="music_card_play">
                 <a href="#type=play&id=${music.id}"><span class="material-icons">play_arrow</span></a>
-                <a href="#type=add_list&id=${music.id}"><span class="material-icons">playlist_add</span></a>
+                <a href="/user/play_list/get/${music.id}"><span class="material-icons">playlist_add</span></a>
             </div>
         </div>
         <div class="music_card_text">

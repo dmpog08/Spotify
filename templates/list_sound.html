@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="menu_list_sound">
+    {% for play_list in play_lists %}
+        <p><a class="button" href="{{url_for('sounds_play_list', id_play_list=play_list.id)}}">{{play_list.name}}</a></p>
+    {% endfor %}
+</div>
+{% endblock %}

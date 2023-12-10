@@ -461,3 +461,11 @@ button:focus{
     display: flex;
     align-items: center;
 }
+
+.menu_list_sound{
+    height: 80vh;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background: black;
+}

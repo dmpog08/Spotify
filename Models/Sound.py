@@ -17,4 +17,3 @@ class Sound(Application().model):
     dislike = Column(LargeBinary, nullable=True, default=pickle.dumps([]))
     created_date = Column(DateTime, default=datetime.datetime.now)
     id_user = Column(Integer)
-

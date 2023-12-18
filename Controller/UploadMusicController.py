@@ -26,7 +26,8 @@ class UploadMusicController(IController):
                           img=filename_img.replace('\\', "/"),
                           file_name=filename_music.replace('\\', "/"),
                           teg=self.__model.tag.data,
-                          id_user=current_user.id)
+                          id_user=current_user.id,
+                          text_music=self.__model.text_music.data)
 
             app().context.add(sound)
             app().context.commit()
